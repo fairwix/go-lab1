@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package booking;
+
+option go_package = "lab1/proto;proto";
+
+service BookingService {
+  rpc Book(BookRequest) returns (BookResponse);
+  rpc GetState(GetStateRequest) returns (GetStateResponse);
+}
+
+message BookRequest {
+  int32 id = 1;
+  int32 attendees = 2;
+}
+
+message BookResponse {
+}
+
+message GetStateRequest {
+}
+
+message GetStateResponse {
+  repeated ResourceState resources = 1;
+}
+
+message ResourceState {
+  int32 id = 1;
+  string status = 2;
+}
